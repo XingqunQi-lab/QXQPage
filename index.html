@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.hal.t.u-tokyo.ac.jp/~furuta/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <style media="screen" type="text/css">
+    a {
+      color: #043d98;
+      text-decoration: none;
+    }
+
+    a:focus,
+    a:hover {
+      color: #f09228;
+      text-decoration: none;
+    }
+
+    a.paper {
+      font-weight: bold;
+      font-size: 12pt;
+    }
+
+    b.paper {
+      font-weight: bold;
+      font-size: 12pt;
+    }
+	    ul {
+      /* list-style: circle; */
+      list-style: disc;
+    }
+
+    img {
+      border: none;
+    }
+
+    li {
+      padding-bottom: 0.5em;
+      margin-left: 1.4em;
+    }
+
+    alert {
+      font-family: Arial, Helvetica, sans-serif;
+      /*font-size: 13px;*/
+      /* font-weight: bold; */
+      color: #FF0000;
+    }
+
+    em,
+    i {
+      font-style: italic;
+    }
+
+    div.section {
+      clear: both;
+      /* margin-bottom: 1.2em; */
+      margin-top: 3em;
+      /* background: #F4F6F6; */
+      background: #FFFFFF;
+    }
+	    div.sectionbttom {
+      clear: both;
+      /* margin-bottom: 1.2em; */
+      margin-top: 5em;
+      /* background: #F4F6F6; */
+      background: #FFFFFF;
+    }
+
+
+    div.spanner {
+      clear: both;
+    }
+
+    div.paper {
+      clear: both;
+      margin-top: 0.4em;
+      margin-bottom: 0.7em;
+      border: 0px solid #ddd;
+      background: #fff;
+      padding: 0.55em .8em .6em .8em;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      line-height: 140%;
+    }
+
+    div.paper2 {
+      clear: both;
+      margin-top: 0.4em;
+      margin-bottom: 0.7em;
+      border: 0px solid #ddd;
+      background: #fff;
+      padding: 0.55em .8em 0.6em .8em;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      line-height: 140%;
+    }
+
+    div.paper2:hover {
+      background: #FFFDEE;
+      /* background-color: #242d36 ; */
+    }
+
+    div.bio {
+      clear: both;
+      margin-top: 0.4em;
+      margin-bottom: 0.7em;
+      border: 0px solid #ddd;
+      background: #fff;
+      padding: 0.55em .8em 0.6em .7em;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      line-height: 135%;
+    }
+
+    div.res {
+      clear: both;
+      margin-top: 0.4em;
+      margin-bottom: 0.4em;
+      border: 0px solid #ddd;
+      background: #fff;
+      padding: 0.65em .8em 0.15em .8em;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      line-height: 130%;
+    }
+    div.title{
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+    }
+    div.award {
+      clear: both;
+      margin-top: 0.4em;
+      margin-bottom: 0.4em;
+      border: 0px solid #ddd;
+      background: #fff;
+      padding: 0.65em .8em 0.15em .8em;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      line-height: 130%;
+    }
+
+    div.paper div {
+      padding-left: 230px;
+    }
+
+    img.paper {
+      margin-bottom: 0.5em;
+      float: left;
+      width: 200px;
+    }
+
+    span.blurb {
+      font-style: italic;
+      display: block;
+      margin-top: 0.75em;
+      margin-bottom: 0.5em;
+    }
+
+    pre,
+    code {
+      font-family: Open Sans Light, Helvetica, sans-serif;
+      font-size: 13px;
+      margin: 1em 0;
+      padding: 0;
+    }
+
+    .bot {
+      font-size: 14%;
+    }
+
+    .ptypej {
+      display: inline;
+      padding: .0em .2em .05em;
+      font-size: 85%;
+      font-weight: bold;
+      line-height: 1;
+      background-color: #5cb85c;
+      color: #FFFFFF;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      margin-right: 6px;
+    }
+
+    .ptypec {
+      display: inline;
+      padding: .0em .2em .05em;
+      font-size: 85%;
+      font-weight: bold;
+      line-height: 1;
+      background-color: #428bca;
+      color: #FFFFFF;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      margin-right: 6px;
+    }
+
+    .ptypep {
+      display: inline;
+      padding: .0em .2em .05em;
+      font-size: 85%;
+      font-weight: bold;
+      line-height: 1;
+      background-color: #6B6B6B;
+      color: #FFFFFF;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: baseline;
+      margin-right: 6px;
+    }
+	</style>
+  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+
+        <title>Xingqun Qi</title>
+        <link href="./files/bootstrap.css" rel="stylesheet">
+        <link href="./files/myedit.css" rel="stylesheet">
+    </head>
+    <body>
+
+      <div class="container-narrow"> <!-- define by myself -->
+        <div class="pull-right">
+          <a href="./index.html">English</a>
+        </div>
+        <br>
+
+      <h2>Xingqun Qi</h2>
+      <div class="row" style="margin-bottom: 20px; margin-left: 0px;">
+      <div class="col-lg-2">
+                <img src="photo/xq2.jpg" class="img-max-height" alt="Responsive image">
+            </div>
+        <div class="col-lg-10">
+        <b>Hi, y'all, I'm a Ph.D. student from the AIS department at HKUST. I'm supervised by <a href="https://cse.hkust.edu.hk/admin/people/faculty/profile/yikeguo">Prof. Yike Guo</a>. My research interests are computer vision and 3D human motion modeling. 
+
+      </div>
+      </div>
+
+        <a href="mailto:xingqunqi@gmail.com"><i class="fas fa-envelope" style="font-size:36px"></i></a> 
+        <a href="https://github.com/XingqunQi-lab"><i class="fab fa-github" style="font-size:36px"></i></a>
+        <a href="" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" style="font-size:36px"></i></a>
+        <a href="" target="_blank" title="Twitter"><i class="fab fa-twitter" style="font-size:36px"></i></a>
+        <a href="https://scholar.google.com.hk/citations?user=3tO41a8AAAAJ&hl=zh-CN"><i class="fas fa-graduation-cap" style="font-size:36px"></i></a>
+
+
+        <h3>Research Interests</h3>
+        <ul>
+          <li>
+            3D Co-speech Gesture Generation
+          </li>
+          <li>
+            Egocentric 3D Human Motion Modeling
+          </li>
+        </ul>
+
+        <h3>Education</h3>
+          <dl>
+            <dt>Ph.D., (Spt. 2023 - Now) in Artificial Intelligence</dt>
+            <dd>Academy of Interdisciplinary Studies,<br>
+            <dd>Hong Kong University of Science and Technology (HKUST).<br>
+            Supervisor: <a href="https://cse.hkust.edu.hk/admin/people/faculty/profile/yikeguo">Prof. Yike Guo</a>
+            </a></dd>
+          </dl>
+          <dl>
+            <dt>Ph.D., (Spt. 2022 - Jun. 2023) in Computer Science (transfer out due to visa)</dt>
+			<dd>School of Computer Science,<br>
+            <dd>University of Technology Sydney (UTS)<br>
+			Supervisor: <a href="https://sites.google.com/view/xinyus-homepage/Home">Prof. Xin Yu</a>
+			</a></dd>
+          </dl>
+          <dl>
+            <dt>M.S., (Spt. 2019 - Jun. 2022) in Control Science and Engineering</dt>
+			<dd>School of Automation,<br>
+            <dd>Beijing University of Posts and Telecommunications (BUPT)<br>
+			Supervisor: <a href="https://scholar.google.com/citations?user=fIXA_SsAAAAJ&hl=en">Prof. Caifeng Shan</a>,
+			<a href="https://scholar.google.com/citations?hl=zh-CN&user=Ti7NNqMAAAAJ&view_op=list_works&sortby=pubdate">Dr. Muyi Sun</a><br>
+			</a></dd>
+          </dl>
+          <dl>
+            <dt>B.S., (Spt. 2015 - Jul. 2019) in E-Commerce Engineering with Law (joint degree)</dt>
+            <dd>Beijing University of Posts and Telecommunications (BUPT)<br>
+            <dd>Queen Mary University of London (QMUL)<br>
+          </dl>
+
+
+   <a name="pub"></a>
+  <div style="clear: both;">
+    <div class="section">
+      <h2 id="confpapers">Publications (Accepted)</h2>
+
+      <!-- CVPR2023 -->
+      <div class="paper" id="CVPR2023_1"><img class="paper" src="papers_teaser/CVPR_2023/CVPR_teaser.png" />
+        <div>
+          <p><a><b>Diverse 3D Hand Gesture Prediction from Body Dynamics by Bilateral Hand Disentanglement</b></a><br />
+            <u><b>Xingqun Qi</b></u>, Chen Liu, Muyi Sun, Lingchen Li, Changjie Fan, Xin Yu
+          </p>Computer Vision and Pattern Recognition (<b><font color="DarkRed">CVPR</font></b>), 2023, CCF A <br /><p>
+            <a href='https://openaccess.thecvf.com/content/CVPR2023/papers/Qi_Diverse_3D_Hand_Gesture_Prediction_From_Body_Dynamics_by_Bilateral_CVPR_2023_paper.pdf'>[PDF]</a>&nbsp;
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      <!-- ICASSP2023 -->
+      <div class="paper" id="ICASSP2023_1"><img class="paper" src="papers_teaser/ICASSP_2023/ICASSP_teaser.png" />
+        <div>
+          <p><a><b>LightVessel: Exploring Lightweight Coronary Artery Vessel Segmentation via Similarity Knowledge Distillation</b></a><br />
+            Hao Dang, Yuekai Zhang, <u><b>Xingqun Qi# (cooresponding author)</b></u>, Wanting Zhou, Muyi Sun
+          </p>IEEE International Conference on Acoustics, Speech and Signal Processing (<b><font color="DarkRed">ICASSP</font></b>), 2023, CCF B <br /><p></p>
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://ieeexplore.ieee.org/document/10094696'>[PDF]</a>&nbsp;
+            <!-- <a href='https://opendrivelab.com/AD23Challenge.html#3d_occupancy_prediction'>[Challenge Web]</a>&nbsp; -->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      <!-- TMI2022 -->
+      <div class="paper" id="TMI_1"><img class="paper" src="papers_teaser/TMI_2022/graphflow.png" />
+        <div>
+          <p><a><b>Graph flow: Cross-layer graph flow distillation for dual efficient medical image segmentation</b></a><br />
+            Wenxuan Zou, <u><b>Xingqun Qi</b></u>, Wanting Zhou, Muyi Sun, Zhenan Sun, Caifeng Shan
+          </p>IEEE Transactions on Medical Imaging (<b><font color="DarkRed">TMI</font></b>), 2022, Top Journal <br /><p></p>
+		  <!-- </p><b><font color="DarkRed">3rd place of CVPR</font></b> 2023 Challenge - Vision-Centric 3D Occupancy Prediction <br /><p> -->
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://ieeexplore.ieee.org/abstract/document/9963578'>[PDF]</a>&nbsp;
+            <!-- <a href='https://opendrivelab.com/AD23Challenge.html#3d_occupancy_prediction'>[Challenge Web]</a>&nbsp; -->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      <div class="paper" id="CVPR2023_3"><img class="paper" src="papers_teaser/CVPR_2022/PIG.png" />
+        <div>
+          <p><a><b>Self-supervised correlation mining network for person image generation</b></a><br />
+            Zijian Wang, <u><b>Xingqun Qi</b></u>, Kun Yuan, Muyi Sun
+          </p>Computer Vision and Pattern Recognition (<b><font color="DarkRed">CVPR</font></b>), 2022, CCF A <br /><p>
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://openaccess.thecvf.com/content/CVPR2022/html/Wang_Self-Supervised_Correlation_Mining_Network_for_Person_Image_Generation_CVPR_2022_paper.html'>[PDF]</a>&nbsp;
+            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      <div class="paper" id="BMVC_2022"><img class="paper" src="papers_teaser/BMVC_2022/SHOW.png" />
+        <div>
+          <p><a><b>ShowFace: Coordinated Face Inpainting with Memory-Disentangled Refinement Networks</b></a><br />
+            Zhuojie Wu, <u><b>Xingqun Qi</b></u>, Zijian Wang, Wanting Zhou, Kun Yuan, Muyi Sun, Zhenan Sun
+          </p>British Machine Vision Conference (<b><font color="DarkRed">BMVC</font></b>), 2022, CCF C <br /><p>
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://bmvc2022.mpi-inf.mpg.de/0052.pdf'>[PDF]</a>&nbsp;
+            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      <div class="paper" id="CVPR2023_2"><img class="paper" src="papers_teaser/BIBM_2022/COCO.png" />
+        <div>
+          <p><a><b>CoCo DistillNet: a Cross-layer Correlation Distillation Network for Pathological Gastric Cancer Segmentation</b></a><br />
+            Wenxuan Zou*, <u><b>Xingqun Qi* (equal contribution)</b></u>, Zhuojie Wu, Zijian Wang, Muyi Sun, Caifeng Shan
+          </p>IEEE International Conference on Bioinformatics and Biomedicine (<b><font color="DarkRed">BIBM</font></b>), 2021, CCF B <br /><p>
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://ieeexplore.ieee.org/abstract/document/9669551'>[PDF]</a>&nbsp;
+            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      <div class="paper" id="CVPR2023_1"><img class="paper" src="papers_teaser/IJCB_2021/SDGAN.png" />
+        <div>
+          <p><a><b>Face Sketch Synthesis via Semantic-Driven Generative Adversarial Network</b></a><br />
+            <u><b>Xingqun Qi*</b></u>, Muyi Sun*, Weining Wang, Xiaoxiao Dong, Qi Li, Caifeng Shan
+          </p>IEEE International Joint Conference on Biometrics (<b><font color="DarkRed">IJCB</font></b>), 2021, CCF C <br /><p>
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://ieeexplore.ieee.org/abstract/document/9484393'>[PDF]</a>&nbsp;
+            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+      
+      <!-- ECCV2022 -->
+      <div class="paper" id="ECCV2022_3"><img class="paper" src="papers_teaser/JBHI_2021/FANET.png" />
+        <div>
+          <p><a><b>	Accurate Retinal Vessel Segmentation in Color Fundus images via Fully Attention-based Networks</b></a><br />
+            Kaiqi Li*, <u><b>Xingqun Qi* (equal contribution)</b></u>, Yiwen Luo, Zeyi Yao, Xiaoguang Zhou, Muyi Sun
+          </p>IEEE Journal of Biomedical and Health Informatics (<b><font color="DarkRed">JBHI</font></b>), 2021, Top Journal <br /><p>
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://ieeexplore.ieee.org/abstract/document/9210783'>[PDF]</a>&nbsp;
+            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+   <a name="pub"></a>
+  <div style="clear: both;">
+    <div class="section">
+      <h2 id="confpapers">Pre-Prints (Under Review)</h2>
+
+
+      <div class="paper" id="ECCV2022"><img class="paper" src="papers_teaser/NeurIPS_2023/EMOTION.png" />
+        <div>
+          <p><a><b>EmotionGesture: Audio-Driven Diverse Emotional Co-Speech 3D Gesture Generation</b></a><br />
+            <u><b>Xingqun Qi*</b></u>, Chen Liu*, Lincheng Li, Jie Hou, Haoran Xin, Xin Yu
+          <!-- </p>European Conference on Computer Vision (<b><font color="DarkRed">ECCV</font></b>), 2022 <br /><p> -->
+          <!-- <b><font color="Green">[Oral]</font></b>&nbsp;<br> -->
+            <a href='https://arxiv.org/pdf/2305.18891.pdf'>[PDF]</a>&nbsp;
+            <!-- <a href='https://github.com/littlepure2333/APE'>[Code]</a>&nbsp; -->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      <div class="paper" id="TNNLS2023"><img class="paper" src="papers_teaser/TNNLS_2023/GRAPH.png" />
+        <div>
+          <p><a><b>Biphasic face photo-sketch synthesis via semantic-driven generative adversarial network with graph representation learning</b></a><br />
+            <u><b>Xingqun Qi*</b></u>, Muyi Sun*, Zijian Wang, Jiaming Liu, Qi Li, Fang Zhao, Shanghang Zhang, Caifeng Shan
+          <!--</p>European Conference on Computer Vision (<b><font color="DarkRed">ECCV</font></b>), 2022 <br /><p> -->
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://arxiv.org/abs/2201.01592'>[PDF]</a>&nbsp;
+            <!--<a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp;-->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      <div class="paper" id="TMI2023_2"><img class="paper" src="papers_teaser/TMI_2023/GKD.png" />
+        <div>
+          <p><a><b>Exploring Generalizable Distillation for Efficient Medical Image Segmentation</b></a><br />
+            <u><b>Xingqun Qi</b></u>, Zhuojie Wu, Wenxuan Zou, Min Ren, Muyi Sun, Caifeng Shan, Zhenan Sun
+          <!--</p>European Conference on Computer Vision (<b><font color="DarkRed">ECCV</font></b>), 2022 <br /><p> -->
+            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
+            <a href='https://arxiv.org/abs/2207.12995'>[PDF]</a>&nbsp;
+            <!--<a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp;-->
+            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
+        </div>
+        <div class="spanner"></div>
+      </div>
+
+      </div><!-- container-narrow -->
+
+      			</hr>
+				<br>
+		<div class="sectionbttom">
+        <footer>
+          <p> </p>
+        </footer>
+      <script src="./files/bootstrap.js"></script>
+</div>
+
+
+</body></html>
