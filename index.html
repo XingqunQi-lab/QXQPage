@@ -1,506 +1,407 @@
-<!DOCTYPE html>
-<!-- saved from url=(0040)http://www.hal.t.u-tokyo.ac.jp/~furuta/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-  <style media="screen" type="text/css">
-    a {
-      color: #043d98;
-      text-decoration: none;
+
+<!doctype html>
+<html>
+
+<head>
+<title>Xingqun Qi</title>
+<link rel="icon" type="image/webp" href="imgs/icon.webp">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="keywords" content="Xingqun Qi, HKUST, The Hong Kong University of Science and Technology, AI, PhD, 祁星群，香港科技大学"> 
+<meta name="description" content="Xingqun Qi's home page">
+<link rel="stylesheet" href="css/jemdoc.css" type="text/css" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-137722442-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<!-- Show more content -->
+<script type="text/javascript">
+    function toggle_vis(id) {
+        // var e = document.getElementById(id);
+        var e = document.getElementsByClassName(id);
+        var showText = document.getElementById("showText");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].style.display == "none") {
+                e[i].style.display = "inline";
+                showText.innerHTML = "[Show less]";
+            } else {
+                e[i].style.display = "none";
+                showText.innerHTML = "[Show more]";
+            }
+        }
     }
 
-    a:focus,
-    a:hover {
-      color: #f09228;
-      text-decoration: none;
+    function toggle_research_vis(target, tabElement) {
+        var is_current_summary = 0;
+
+        var e = document.getElementsByClassName("research_summary");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                if (e[i].style.display == "inline") {
+                    is_current_summary = 1;
+                } else {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("progress_button");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target + "_button") {
+                if (is_current_summary == 0) {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("goal_tabs");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id != target + "_goal_tabs") {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_research_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "research_tab";
+        }
+        tabElement.className = "highlight_research_tab"
     }
 
-    a.paper {
-      font-weight: bold;
-      font-size: 12pt;
+    function toggle_goal_vis(id, goal_tabs_id, goal) {
+        var e = document.getElementById(id);
+        e.style.display = "none";
+        var goal_tabs = document.getElementById(goal_tabs_id);
+        goal_tabs.style.display = "inline";
+
+        var goal_tab = document.getElementById(goal + "_tab");
+        toggle_goal_progress_vis(goal_tab);
+        // add_goal_progress_div(goal);
     }
 
-    b.paper {
-      font-weight: bold;
-      font-size: 12pt;
-    }
-	    ul {
-      /* list-style: circle; */
-      list-style: disc;
-    }
+    function toggle_goal_progress_vis(tabElement) {
+        var target = tabElement.id;
+        target = target.substring(0, target.length - 4);
 
-    img {
-      border: none;
-    }
+        var e = document.getElementsByClassName("goal_progress");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                e[i].style.display = "inline";
+            } else {
+                e[i].style.display = "none";
+            }
+        }
 
-    li {
-      padding-bottom: 0.5em;
-      margin-left: 1.4em;
-    }
+        var e = document.getElementsByClassName("highlight_goal_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "goal_tab";
+        }
+        tabElement.className = "highlight_goal_tab"
 
-    alert {
-      font-family: Arial, Helvetica, sans-serif;
-      /*font-size: 13px;*/
-      /* font-weight: bold; */
-      color: #FF0000;
+        add_goal_progress_div(target);
     }
 
-    em,
-    i {
-      font-style: italic;
+    function add_goal_progress_div(goal) {
+        var e = document.getElementById(goal);
+        if (e && e.children.length == 0) {
+            var children = Array.from(document.getElementsByClassName(goal));
+            for (var i = 0; i < children.length; i++) {
+                var cloned_div = children[i].cloneNode(true);
+                cloned_div.className = "publication_container";
+                e.appendChild(cloned_div);
+            }
+        }
     }
+</script>
 
-    div.section {
-      clear: both;
-      /* margin-bottom: 1.2em; */
-      margin-top: 3em;
-      /* background: #F4F6F6; */
-      background: #FFFFFF;
-    }
-	    div.sectionbttom {
-      clear: both;
-      /* margin-bottom: 1.2em; */
-      margin-top: 5em;
-      /* background: #F4F6F6; */
-      background: #FFFFFF;
-    }
+</head>
 
 
-    div.spanner {
-      clear: both;
-    }
+<body>
 
-    div.paper {
-      clear: both;
-      margin-top: 0.4em;
-      margin-bottom: 0.7em;
-      border: 0px solid #ddd;
-      background: #fff;
-      padding: 0.55em .8em .6em .8em;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      line-height: 140%;
-    }
-
-    div.paper2 {
-      clear: both;
-      margin-top: 0.4em;
-      margin-bottom: 0.7em;
-      border: 0px solid #ddd;
-      background: #fff;
-      padding: 0.55em .8em 0.6em .8em;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      line-height: 140%;
-    }
-
-    div.paper2:hover {
-      background: #FFFDEE;
-      /* background-color: #242d36 ; */
-    }
-
-    div.bio {
-      clear: both;
-      margin-top: 0.4em;
-      margin-bottom: 0.7em;
-      border: 0px solid #ddd;
-      background: #fff;
-      padding: 0.55em .8em 0.6em .7em;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      line-height: 135%;
-    }
-
-    div.res {
-      clear: both;
-      margin-top: 0.4em;
-      margin-bottom: 0.4em;
-      border: 0px solid #ddd;
-      background: #fff;
-      padding: 0.65em .8em 0.15em .8em;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      line-height: 130%;
-    }
-    div.title{
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-    }
-    div.award {
-      clear: both;
-      margin-top: 0.4em;
-      margin-bottom: 0.4em;
-      border: 0px solid #ddd;
-      background: #fff;
-      padding: 0.65em .8em 0.15em .8em;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
-      line-height: 130%;
-    }
-
-    div.paper div {
-      padding-left: 230px;
-    }
-
-    img.paper {
-      margin-bottom: 0.5em;
-      float: left;
-      width: 200px;
-    }
-
-    span.blurb {
-      font-style: italic;
-      display: block;
-      margin-top: 0.75em;
-      margin-bottom: 0.5em;
-    }
-
-    pre,
-    code {
-      font-family: Open Sans Light, Helvetica, sans-serif;
-      font-size: 13px;
-      margin: 1em 0;
-      padding: 0;
-    }
-
-    .bot {
-      font-size: 14%;
-    }
-
-    .ptypej {
-      display: inline;
-      padding: .0em .2em .05em;
-      font-size: 85%;
-      font-weight: bold;
-      line-height: 1;
-      background-color: #5cb85c;
-      color: #FFFFFF;
-      text-align: center;
-      white-space: nowrap;
-      vertical-align: baseline;
-      margin-right: 6px;
-    }
-
-    .ptypec {
-      display: inline;
-      padding: .0em .2em .05em;
-      font-size: 85%;
-      font-weight: bold;
-      line-height: 1;
-      background-color: #428bca;
-      color: #FFFFFF;
-      text-align: center;
-      white-space: nowrap;
-      vertical-align: baseline;
-      margin-right: 6px;
-    }
-
-    .ptypep {
-      display: inline;
-      padding: .0em .2em .05em;
-      font-size: 85%;
-      font-weight: bold;
-      line-height: 1;
-      background-color: #6B6B6B;
-      color: #FFFFFF;
-      text-align: center;
-      white-space: nowrap;
-      vertical-align: baseline;
-      margin-right: 6px;
-    }
-	</style>
-  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-
-        <title>Xingqun Qi</title>
-        <link href="./files/bootstrap.css" rel="stylesheet">
-        <link href="./files/myedit.css" rel="stylesheet">
-    </head>
-    <body>
-
-      <div class="container-narrow"> <!-- define by myself -->
-        <div class="pull-right">
-          <a href="./index.html">English</a>
-        </div>
-        <br>
-
-      <h2>Xingqun Qi</h2>
-      <div class="row" style="margin-bottom: 20px; margin-left: 0px;">
-      <div class="col-lg-2">
-                <img src="photo/homepage.jpg" class="img-max-height" alt="Responsive image">
-            </div>
-        <div class="col-lg-10">
-        <b>Hi, y'all, I'm a Ph.D. student from the AIS department at HKUST. <br>
-	   Currently, I'm supervised by <a href="https://cse.hkust.edu.hk/admin/people/faculty/profile/yikeguo">Prof. Yike Guo</a>, co-supervised by <a href="https://emia.hkust.edu.hk/people/detail/qifeng-liu-liuqifeng">Prof. Qifeng Liu</a>.<br> 
-	   I also work closely with <a href="https://www.shanghangzhang.com/">Prof. Shanghang Zhang</a> from Peking University, and <a href="https://scholar.google.com/citations?hl=zh-CN&user=Ti7NNqMAAAAJ&view_op=list_works&sortby=pubdate">Dr. Muyi Sun</a> from CRIPAC, NLPR, CASIA & BUPT.<br>
-	   <!--and <a href="http://wei-xue.com/">Prof. Wei Xue</a>.-->
-	   
-      </div>
-      </div>
-
-        <a href="mailto:xingqunqi@gmail.com"><i class="fas fa-envelope" style="font-size:36px"></i></a> 
-        <a href="https://github.com/XingqunQi-lab"><i class="fab fa-github" style="font-size:36px"></i></a>
-        <a href="" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" style="font-size:36px"></i></a>
-        <a href="" target="_blank" title="Twitter"><i class="fab fa-twitter" style="font-size:36px"></i></a>
-        <a href="https://scholar.google.com.hk/citations?user=3tO41a8AAAAJ&hl=zh-CN"><i class="fas fa-graduation-cap" style="font-size:36px"></i></a>
+<div id="layout-content" style="margin-top:25px">
 
 
-        <h3>Research Interests</h3>
-        <ul>
-          <li>
-            3D Co-speech Gesture Generation
-          </li>
-          <li>
-            Egocentric 3D Human Motion Modeling
-          </li>
-        </ul>
+<table>
+	<tbody>
+		<tr>
+			<td width="75%">
+				<div id="toptitle">
+					<h1>Xingqun Qi (祁星群)<h1>
+				</div>
 
-        <h3>Education</h3>
-          <dl>
-            <dt>Ph.D., (Spt. 2023 - Now) in Artificial Intelligence</dt>
-            <dd>Academy of Interdisciplinary Studies,<br>
-            <dd>Hong Kong University of Science and Technology (HKUST).<br>
-            Supervisor: <a href="https://cse.hkust.edu.hk/admin/people/faculty/profile/yikeguo">Prof. Yike Guo</a>,
-			<a href="https://emia.hkust.edu.hk/people/detail/qifeng-liu-liuqifeng">Prof. Qifeng Liu</a> <br>
-		        <!--<a href="http://wei-xue.com/">Prof. Wei Xue</a>-->
-            </a></dd>
-          </dl>
-          <dl>
-            <dt>Ph.D., (Spt. 2022 - Jun. 2023) in Computer Science (transferred out due to visa)</dt>
-			<dd>School of Computer Science,<br>
-            <dd>University of Technology Sydney (UTS)<br>
-			Supervisor: <a href="https://sites.google.com/view/xinyus-homepage/Home">Prof. Xin Yu</a>
-			</a></dd>
-          </dl>
-          <dl>
-            <dt>M.S., (Spt. 2019 - Jun. 2022) in Control Science and Engineering</dt>
-			<dd>School of Automation,<br>
-            <dd>Beijing University of Posts and Telecommunications (BUPT)<br>
-			Supervisor: <a href="https://scholar.google.com/citations?user=fIXA_SsAAAAJ&hl=en">Prof. Caifeng Shan</a>,
-			<a href="https://scholar.google.com/citations?hl=zh-CN&user=Ti7NNqMAAAAJ&view_op=list_works&sortby=pubdate">Dr. Muyi Sun</a><br>
-			</a></dd>
-          </dl>
-          <dl>
-            <dt>B.S., (Spt. 2015 - Jul. 2019) in E-Commerce Engineering with Law (<b><font color="Blue">joint degree</font></b>)</dt>
-            <dd>Beijing University of Posts and Telecommunications (BUPT)<br>
-            <dd>Queen Mary University of London (QMUL)<br>
-          </dl>
+                <h3 class="title">PhD Candidate</h3> </h1>
 
+				<p>
+                    
+                    Academy of Interdisciplinary Studies (AIS)</br>
+                    The Hong Kong University of Science and Technology (HKUST)</br></br>
+		    <b>Research Interests:</b>3D Human Motion Modeling, Egocentric View Analysis, Medical Image Analysis</br>
+                    Email: <a href="mailto:xingqunqi@gmail.com">xingqunqi dot gmail dot com </a></br>
+					</br>
+                    [<a href="https://scholar.google.com.hk/citations?user=3tO41a8AAAAJ&hl=zh-CN">Google Scholar</a>] </br> 
+				</p>
 
-   <a name="pub"></a>
-  <div style="clear: both;">
-    <div class="section">
-      <h2 id="confpapers">Pre-Prints (Under Review)</h2>
+			</td>
+			<td width="25%">
+				<img src="photo/homepage.jpg" width="70%"/>
+			</td>
+		<tr>
+	</tbody>
+</table>
 
-      <div class="paper" id="ECCV2022"><img class="paper" src="papers_teaser/NeurIPS_2023/EMOTION.png" />
-        <div>
-          <p><a><b>EmotionGesture: Audio-Driven Diverse Emotional Co-Speech 3D Gesture Generation</b></a><br />
-            <b><font color="Green">Xingqun Qi*</font></b>, Chen Liu*, Lincheng Li, Jie Hou, Haoran Xin, Xin Yu
-          <!-- </p>European Conference on Computer Vision (<b><font color="Red">ECCV</font></b>), 2022 <br /><p> -->
-          </p> <b><font color="Red">Under Review</font></b>, 2023 <br /><p>
-            <a href="https://xingqunqi-lab.github.io/Emotion-Gesture-Web/"><b><font color="Orange">Project Page</font></b></a> <a href='https://arxiv.org/pdf/2305.18891.pdf'>[PDF]</a>&nbsp;
-            <!-- <a href='https://github.com/littlepure2333/APE'>[Code]</a>&nbsp; -->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
-	    
+<h2>Short Bio</h2> 
 
-   <a name="pub"></a>
-  <div style="clear: both;">
-    <div class="section">
-      <h2 id="confpapers">Publications (Accepted)</h2>
+<div style="display: flex; margin-bottom: -10px">
+    <p>
+	    I am a PhD candidate at The Hong Kong University of Science and Technology (HKUST), supervised by <a href="https://cse.hkust.edu.hk/admin/people/faculty/profile/yikeguo">Prof. Yike Guo</a> and co-supervised by <a href="https://emia.hkust.edu.hk/people/detail/qifeng-liu-liuqifeng">Prof. Qifeng Liu</a>. My research focuses on 3D Human Motion Modeling, Egocentric View Analysis, and Medical Image Analysis. I received my Master's degree from the Beijing University of Posts and Telecommunications in June of 2022, supervised by <a href="https://caifeng-shan.github.io/">Prof. Caifeng Shan</a> and <a href="https://scholar.google.com.hk/citations?user=Ti7NNqMAAAAJ&hl=zh-CN">Dr. Muyi Sun</a>. I received my Bachelor's degree from both the Beijing University of Posts and Telecommunications and the Queen Mary University of London.</br>
 
-      <div class="paper" id="TMI2023_2"><img class="paper" src="papers_teaser/TMI_2023/GKD.png" />
-        <div>
-          <p><a><b>Exploring Generalizable Distillation for Efficient Medical Image Segmentation</b></a><br />
-            <b><font color="Green">Xingqun Qi</font></b>, Zhuojie Wu, Wenxuan Zou, Min Ren, Yifan Gao, Muyi Sun, Shanghang Zhang, Caifeng Shan, Zhenan Sun
-            </p>IEEE Journal of Biomedical and Health Informatics (<b><font color="Red">IEEE JBHI</font></b>), 2024, Top Journal <br /><p>
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href='https://arxiv.org/abs/2207.12995'>[PDF]</a>&nbsp;
-            <!--<a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp;-->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
-	    
-      <div class="paper" id="CVPR2024"><img class="paper" src="papers_teaser/CVPR24/CVPR_24_teaser.png" />
-        <div>
-          <p><a><b>Weakly-Supervised Emotion Transition Learning for Diverse 3D Co-speech Gesture Generation </b></a><br />
-            <b><font color="Green">Xingqun Qi</font></b>, Jiahan Pan, Peng Li, Ruibin Yuan, Xiaowei Chi, Mengfei Li, Wenhan Luo, Wei Xue, Shanghang Zhang, Qifeng Liu, Yike Guo
-            </p>Computer Vision and Pattern Recognition (<b><font color="Red">IEEE/CVF CVPR</font></b>), 2024, CCF A <br /><p>
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href="https://xingqunqi-lab.github.io/Emo-Transition-Gesture/"><b><font color="Orange">Project Page</font></b></a> <a href='https://arxiv.org/abs/2311.17532'>[PDF]</a>&nbsp;
-            <!--<a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp;-->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
+        </br>
+        I work closely with <a href="https://whluo.github.io/">Prof. Wenhan Luo</a>, <a href="https://scholar.google.com/citations?user=voqw10cAAAAJ&hl=en">Prof. Shanghang Zhang</a>, and <a href="https://scholar.google.com.hk/citations?user=Ti7NNqMAAAAJ&hl=zh-CN">Dr. Muyi Sun</a> </br>
+		</br>
+		<!--Moreover, I collaborate closely with <a href="https://scholar.google.com/citations?user=NYLsVscAAAAJ">Lincheng Li</a>, <a href="https://gogoduck912.github.io/">Peike Li</a>, <a href="https://people.csiro.au/w/d/dadong-wang.aspx">Dadong Wang</a>, and <a href="https://xingqunqi-lab.github.io/QXQPage/">Xingqun Qi</a>. Very fortunate to encounter these great collaborators!-->
+		</br></br>
+		<b>I'd like to connect with anyone who's passionate about research. Excited for some great intellectual discussions!</b>
+    </p>
+</div>
 
-      <div class="paper" id="TMM2023"><img class="paper" src="papers_teaser/TMM_2023/TMM_teaser.png" />
-        <div>
-          <p><a><b>Calligraphy Font Generation via Explicitly Modeling Location-aware Glyph Component Deformations</b></a><br />
-            Minda Zhao*, <b><font color="Green">Xingqun Qi* (equal contribution)</font></b>, Zhiping Hu, Lincheng Li, Yongqiang Zhang, Zi Huang, Xin Yu
-            </p>IEEE Transactions on Multimedia (<b><font color="Red">IEEE TMM</font></b>), 2023, Top Journal <br /><p>
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href='https://ieeexplore.ieee.org/document/10356848'>[PDF]</a>&nbsp;
-            <!--<a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp;-->
-            <!-- <a href='papers/CVPRW020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
+<h2>News</h2>
 
-      <div class="paper" id="TNNLS2023"><img class="paper" src="papers_teaser/TNNLS_2023/GRAPH.png" />
-        <div>
-          <p><a><b>Biphasic face photo-sketch synthesis via semantic-driven generative adversarial network with graph representation learning</b></a><br />
-            <b><font color="Green">Xingqun Qi*</font></b>, Muyi Sun*, Zijian Wang, Jiaming Liu, Qi Li, Fang Zhao, Shanghang Zhang, Caifeng Shan
-            </p>IEEE Transactions on Neural Networks and Learning Systems (<b><font color="Red">IEEE TNNLS</font></b>), 2023, Top Journal  <br /><p>
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href='https://ieeexplore.ieee.org/document/10365567'>[PDF]</a>&nbsp;
-            <!--<a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp;-->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
+<ul>
+	<li>
+        <div class="marker">[2024-03] One paper accepted by IEEE JBHI.</div>
+    </li>
+    <li>
+        <div class="marker">[2024-03] One paper accepted to CVPR 2024.</div>
+    </li>
+	<li>
+        <div class="marker">[2023-12] One paper accepted to IEEE TNNLS.</div>
+    </li>
+	<li>
+        <div class="marker">[2023-10] One paper accepted to IEEE TMM.</div>
+    </li>
+	<li>
+        <div class="marker">[2023-05] One paper accepted to ACM MM 2023.</div>
+    </li>
+    <li>
+        <div class="marker">[2023-03] One paper accepted to CVPR 2023.</div>
+    </li>
+    <li>
+        <div class="marker">[2022-12] One paper accepted to IEEE TMM.</div>
+    </li>
+    <li>
+        <div class="marker">[2022-03] One paper accepted to CVPR 2022.</div>
+    </li>
+    </div>
+</ul>
 
-      <!-- ACM MM2023 -->
-      <div class="paper" id="MM2023_1"><img class="paper" src="papers_teaser/MM_teaser.png" />
-        <div>
-          <p><a><b>Audio-Visual Segmentation by Exploring Cross-Modal Mutual Semantics</b></a><br />
-		Chen Liu, Peike Li, <b><font color="Green">Xingqun Qi</font></b>, Hu Zhang, Lincheng Li, Dadong Wang, Xin Yu
-          </p>ACM International Conference on Multimedia (<b><font color="Red">ACM MM</font></b>), 2023, CCF A <br /><p>
-            <a href='https://arxiv.org/pdf/2307.16620.pdf'>[PDF]</a>&nbsp; 
-        </div>
-        <div class="spanner"></div>
-      </div>
-
-	    
-      <!-- CVPR2023 -->
-      <div class="paper" id="CVPR2023_1"><img class="paper" src="papers_teaser/CVPR_2023/CVPR_2023_teaser3.jpg" />
-        <div>
-          <p><a><b>Diverse 3D Hand Gesture Prediction from Body Dynamics by Bilateral Hand Disentanglement</b></a><br />
-            <b><font color="Green">Xingqun Qi</font></b>, Chen Liu, Muyi Sun, Lingchen Li, Changjie Fan, Xin Yu
-          </p>Computer Vision and Pattern Recognition (<b><font color="Red">IEEE/CVF CVPR</font></b>), 2023, CCF A <br /><p>
-            <a href='https://openaccess.thecvf.com/content/CVPR2023/papers/Qi_Diverse_3D_Hand_Gesture_Prediction_From_Body_Dynamics_by_Bilateral_CVPR_2023_paper.pdf'>[PDF]</a>&nbsp;
-        </div>
-        <div class="spanner"></div>
-      </div>
-
-      <!-- ICASSP2023 -->
-      <div class="paper" id="ICASSP2023_1"><img class="paper" src="papers_teaser/ICASSP_2023/ICASSP_teaser.png" />
-        <div>
-          <p><a><b>LightVessel: Exploring Lightweight Coronary Artery Vessel Segmentation via Similarity Knowledge Distillation</b></a><br />
-            Hao Dang, Yuekai Zhang, <b><font color="Green">Xingqun Qi# (corresponding author)</font></b>, Wanting Zhou, Muyi Sun
-          </p>IEEE International Conference on Acoustics, Speech and Signal Processing (<b><font color="Red">IEEE ICASSP</font></b>), 2023, CCF B <br /><p></p>
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href='https://ieeexplore.ieee.org/document/10094696'>[PDF]</a>&nbsp;
-            <!-- <a href='https://opendrivelab.com/AD23Challenge.html#3d_occupancy_prediction'>[Challenge Web]</a>&nbsp; -->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
-
-      <!-- TMI2022 -->
-      <div class="paper" id="TMI_1"><img class="paper" src="papers_teaser/TMI_2022/graphflow.png" />
-        <div>
-          <p><a><b>Graph flow: Cross-layer graph flow distillation for dual efficient medical image segmentation</b></a><br />
-            Wenxuan Zou, <b><font color="Green">Xingqun Qi</font></b>, Wanting Zhou, Muyi Sun, Zhenan Sun, Caifeng Shan
-          </p>IEEE Transactions on Medical Imaging (<b><font color="Red">IEEE TMI</font></b>), 2022, Top Journal <br /><p></p>
-		  <!-- </p><b><font color="DarkRed">3rd place of CVPR</font></b> 2023 Challenge - Vision-Centric 3D Occupancy Prediction <br /><p> -->
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href='https://ieeexplore.ieee.org/abstract/document/9963578'>[PDF]</a>&nbsp;
-            <!-- <a href='https://opendrivelab.com/AD23Challenge.html#3d_occupancy_prediction'>[Challenge Web]</a>&nbsp; -->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
-
-      <div class="paper" id="CVPR2023_3"><img class="paper" src="papers_teaser/CVPR_2022/PIG.png" />
-        <div>
-          <p><a><b>Self-supervised correlation mining network for person image generation</b></a><br />
-            Zijian Wang, <b><font color="Green">Xingqun Qi</font></b>, Kun Yuan, Muyi Sun
-          </p>Computer Vision and Pattern Recognition (<b><font color="Red">IEEE/CVF CVPR</font></b>), 2022, CCF A <br /><p>
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href='https://openaccess.thecvf.com/content/CVPR2022/html/Wang_Self-Supervised_Correlation_Mining_Network_for_Person_Image_Generation_CVPR_2022_paper.html'>[PDF]</a>&nbsp;
-            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
-
-      <!--<div class="paper" id="BMVC_2022"><img class="paper" src="papers_teaser/BMVC_2022/SHOW.png" />-->
-        <!--<div>-->
-          <!--<p><a><b>ShowFace: Coordinated Face Inpainting with Memory-Disentangled Refinement Networks</b></a><br />-->
-            <!--Zhuojie Wu, <b><font color="Green">Xingqun Qi</font></b>, Zijian Wang, Wanting Zhou, Kun Yuan, Muyi Sun, Zhenan Sun-->
-          <!--</p>British Machine Vision Conference (<b><font color="Red">BMVC</font></b>), 2022, CCF C <br /><p>-->
-            <!--<!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <!--<a href='https://bmvc2022.mpi-inf.mpg.de/0052.pdf'>[PDF]</a>&nbsp;-->
-            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        <!--</div>-->
-        <!--<div class="spanner"></div>-->
-      <!--</div>-->
-
-     <!-- <div class="paper" id="CVPR2023_2"><img class="paper" src="papers_teaser/BIBM_2022/COCO.png" />-->
-        <!--<div>-->
-         <!-- <p><a><b>CoCo DistillNet: a Cross-layer Correlation Distillation Network for Pathological Gastric Cancer Segmentation</b></a><br />-->
-           <!-- Wenxuan Zou*, <b><font color="Green">Xingqun Qi* (equal contribution)</font></b>, Zhuojie Wu, Zijian Wang, Muyi Sun, Caifeng Shan-->
-         <!-- </p>IEEE International Conference on Bioinformatics and Biomedicine (<b><font color="Red">BIBM</font></b>), 2021, CCF B <br /><p> -->
-           <!-- <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-           <!-- <a href='https://ieeexplore.ieee.org/abstract/document/9669551'>[PDF]</a>&nbsp;-->
-            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-       <!-- </div>-->
-       <!-- <div class="spanner"></div>-->
-     <!-- </div>-->
-
-      <div class="paper" id="CVPR2023_1"><img class="paper" src="papers_teaser/IJCB_2021/SDGAN.png" />
-        <div>
-          <p><a><b>Face Sketch Synthesis via Semantic-Driven Generative Adversarial Network</b></a><br />
-            <b><font color="Green">Xingqun Qi*</font></b>, Muyi Sun*, Weining Wang, Xiaoxiao Dong, Qi Li, Caifeng Shan
-          </p>IEEE International Joint Conference on Biometrics (<b><font color="Red">IEEE IJCB</font></b>), 2021, CCF C <br /><p>
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href='https://ieeexplore.ieee.org/abstract/document/9484393'>[PDF]</a>&nbsp;
-            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
-      
-      <!-- ECCV2022 -->
-      <div class="paper" id="ECCV2022_3"><img class="paper" src="papers_teaser/JBHI_2021/FANET.png" />
-        <div>
-          <p><a><b>	Accurate Retinal Vessel Segmentation in Color Fundus images via Fully Attention-based Networks</b></a><br />
-            Kaiqi Li*, <b><font color="Green">Xingqun Qi* (equal contribution)</font></b>, Yiwen Luo, Zeyi Yao, Xiaoguang Zhou, Muyi Sun
-          </p>IEEE Journal of Biomedical and Health Informatics (<b><font color="Red">IEEE JBHI</font></b>), 2021, Top Journal <br /><p>
-            <!-- <b><font color="Green">[Poster]</font></b>&nbsp; -->
-            <a href='https://ieeexplore.ieee.org/abstract/document/9210783'>[PDF]</a>&nbsp;
-            <!-- <a href='https://github.com/Neural-video-delivery/EMT-Pytorch-ECCV2022'>[Code]</a>&nbsp; -->
-            <!-- <a href='papers/CVPRW2020/CVPR20_EDLCV_Oral_15min.pdf'>[Slides]</a>&nbsp; -->
-        </div>
-        <div class="spanner"></div>
-      </div>
-
-
-
-      </div><!-- container-narrow -->
-
-      			</hr>
-				<br>
-		<div class="sectionbttom">
-        <footer>
-          <p> </p>
-        </footer>
-      <script src="./files/bootstrap.js"></script>
+<div class="show_button">
+    <a href="javascript:toggle_vis('news')" id="showText">[Show more]</a>
 </div>
 
 
-</body></html>
+<h2>Preprints
+    <span style="font-size: 50%;">(* denotes equal contribution)</span>
+</h2>
+
+<!-- <div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="paper_Img/TMM.jpg">
+    </div>
+    <div class="publication_title">
+        BAVS: bootstrapping audio-visual segmentation by integrating foundation knowledge</br>
+        <b>Chen Liu</b>, Peike Li, Hu Zhang, Lincheng Li, Zi Huang, Dadong Wang, Xin Yu</br>
+        [<a href="https://arxiv.org/pdf/2308.10175.pdf">Paper</a>][<a href="https://yenanliu.github.io/AVSS.github.io/">Project Page</a>]
+    </div>
+</div> -->
+
+<div class="publication_container scene_generation">
+    <div class="publication_image">
+        <img src="papers_teaser/NeurIPS_2023/EMOTION.png">
+    </div>
+    <div class="publication_title">
+        Emotiongesture: Audio-driven diverse emotional co-speech 3d gesture generation</br>
+        Xingqun Qi*, <b>Chen Liu*</b>, Lincheng Li, Jie Hou, Haoran Xin, Xin Yu</br>
+        [<a href="https://arxiv.org/pdf/2305.18891v2.pdf">Paper</a>][<a href="https://xingqunqi-lab.github.io/Emotion-Gesture-Web/">Project Page</a>]
+    </div>
+</div>
+
+
+<h2>
+    Publications
+    <span style="font-size: 50%;">(* denotes equal contribution)</span>
+</h2>
+
+<div class="newline_bg">
+    <h3>2024</h3>
+</div>
+
+<div class="Medical Image Analysis">
+    <div class="publication_image">
+        <img src="papers_teaser/TMI_2023/GKD.png">
+    </div>
+    <div class="publication_title">
+        Exploring Generalizable Distillation for Efficient Medical Image Segmentation </br>
+        <b>Xingqun Qi</b>, Zhuojie Wu, Wenxuan Zou, Min Ren, Yifan Gao, Muyi Sun, Shanghang Zhang, Caifeng Shan, Zhenan Sun
+</br>
+        IEEE Journal of Biomedical and Health Informatics (IEEE JBHI) 2024.</br>
+        (🔥Comming Soon!) </br>
+		[<a href="https://arxiv.org/pdf/2311.17532.pdf">Paper</a>][<a href="https://xingqunqi-lab.github.io/Emo-Transition-Gesture/">Project Page</a>]
+    </div>
+</div>
+						
+<div class="Co-speech Gesture">
+    <div class="publication_image">
+        <img src="papers_teaser/CVPR24/CVPR_24_teaser.png">
+    </div>
+    <div class="publication_title">
+        Weakly-Supervised Emotion Transition Learning for Diverse 3D Co-speech Gesture Generation </br>
+        <b>Xingqun Qi</b>, Jiahan Pan, Peng Li, Ruibin Yuan, Xiaowei Chi, Mengfei Li, Wenhan Luo, Wei Xue, Shanghang Zhang, Qifeng Liu, Yike Guo
+</br>
+        IEEE/CVF Computer Vision and Pattern Recognition (IEEE/CVF CVPR) 2024.</br>
+        (🔥Comming Soon!) </br>
+		[<a href="https://arxiv.org/pdf/2311.17532.pdf">Paper</a>][<a href="https://xingqunqi-lab.github.io/Emo-Transition-Gesture/">Project Page</a>]
+    </div>
+</div>
+
+<div class="newline_bg">
+    <h3>2023</h3>
+</div>
+						
+<div class="TNNLS_2023">
+    <div class="publication_image">
+        <img src="papers_teaser/TNNLS_2023/GRAPH.png">
+    </div>
+    <div class="publication_title">
+        Biphasic face photo-sketch synthesis via semantic-driven generative adversarial network with graph representation learning/br>
+        <b>Xingqun Qi*</b>, Muyi Sun*, Zijian Wang, Jiaming Liu, Qi Li, Fang Zhao, Shanghang Zhang, Caifeng Shan</br>
+        IEEE Transactions on Neural Networks and Learning Systems (IEEE TNNLS) 2023.</br>
+        [<a href="https://ieeexplore.ieee.org/document/10356848">Paper</a>]
+    </div>
+</div>
+
+					
+<div class="TMM_2023">
+    <div class="publication_image">
+        <img src="papers_teaser/TMM_2023/TMM_teaser.png">
+    </div>
+    <div class="publication_title">
+        Calligraphy Font Generation via Explicitly Modeling Location-aware Glyph Component Deformations</br>
+        Minda Zhao*, <b>Xingqun Qi*</b>, Zhiping Hu, Lincheng Li, Yongqiang Zhang, Zi Huang, Xin Yu</br>
+        IEEE Transactions on Multimedia (IEEE TMM) 2023.</br>
+        [<a href="https://ieeexplore.ieee.org/document/10356848">Paper</a>]
+    </div>
+</div>
+
+
+<div class="publication_container AVS_MS">
+    <div class="publication_image">
+        <img src="papers_teaser/MM_teaser.png">
+    </div>
+    <div class="publication_title">
+        Audio-Visual Segmentation by Exploring Cross-Modal Mutual Semantics</br>
+        Chen Liu, Peike Li, <b>Xingqun Qi</b>, Hu Zhang, Lincheng Li, Dadong Wang, Xin Yu</br>
+        ACM International Conference on Multimedia (ACM MM) 2023.</br>
+        [<a href="https://arxiv.org/pdf/2307.16620.pdf">Paper</a>]
+</div>
+</div>
+
+<div class="CVPR_2023">
+    <div class="publication_image">
+        <img src="papers_teaser/CVPR_2023/CVPR_2023_teaser3.jpg">
+    </div>
+    <div class="publication_title">
+        Diverse 3D Hand Gesture Prediction from Body Dynamics by Bilateral Hand Disentanglement</br>
+        <b>Xingqun Qi</b>, Chen Liu, Muyi Sun, Lingchen Li, Changjie Fan, Xin Yu</br>
+        IEEE/CVF Computer Vision and Pattern Recognition (IEEE/CVF CVPR) 2023.</br>
+        [<a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Qi_Diverse_3D_Hand_Gesture_Prediction_From_Body_Dynamics_by_Bilateral_CVPR_2023_paper.pdf">Paper</a>]
+    </div>
+</div>
+
+
+<div class="newline_bg">
+    <h3>2022</h3>
+</div>
+
+<div class="TMM 2022">
+    <div class="publication_image">
+        <img src="papers_teaser/TMI_2022/graphflow.png">
+    </div>
+    <div class="publication_title">
+        Graph flow: Cross-layer graph flow distillation for dual efficient medical image segmentation</br>
+        Wenxuan Zou, <b>Xingqun Qi</b>, Wanting Zhou, Muyi Sun, Zhenan Sun, Caifeng Shan/br>
+        IEEE Transactions on Medical Imaging (IEEE TMM) 2022.</br>
+        [<a href="https://ieeexplore.ieee.org/abstract/document/9963578">Paper</a>]
+	</div>
+</div>
+
+<div class="CVPR_2022">
+    <div class="publication_image">
+        <img src="papers_teaser/CVPR_2022/PIG.png">
+    </div>
+    <div class="publication_title">
+        Self-supervised correlation mining network for person image generation</br>
+        Zijian Wang, <b>Xingqun Qi</b>, Kun Yuan, Muyi Sun
+        IEEE/CVF Computer Vision and Pattern Recognition (IEEE/CVF CVPR) 2022.</br>
+        [<a href="https://www.mdpi.com/2077-0472/12/4/452">Paper</a>]
+    </div>
+</div>
+
+<div class="newline_bg">
+    <h3>2021</h3>
+</div>
+
+<div class="Medical Image Analysis JBHI">
+    <div class="publication_image">
+        <img src="papers_teaser/JBHI_2021/FANET.png">
+    </div>
+    <div class="publication_title">
+        Accurate Retinal Vessel Segmentation in Color Fundus images via Fully Attention-based Networks </br>
+        Kaiqi Li*, <b>Xingqun Qi*</b>, Yiwen Luo, Zeyi Yao, Xiaoguang Zhou, Muyi Sun
+</br>
+        IEEE Journal of Biomedical and Health Informatics (IEEE JBHI) 2021.</br>
+	[<a href="https://ieeexplore.ieee.org/abstract/document/9210783">Paper</a>]
+    </div>
+</div>
+
+						
+<h2>Competitions</h2>
+
+<ul>
+<!--     <li>
+        <div class="marker">First Place of the 6th ABAW Competition</div> <div>CVPR, 2024</div>
+    </li>                                                                       
+    <li>                                                                        
+        <div class="marker">First Place of the Image Classification of Nutrient Deficiencies in Winter Wheat and Winter Rye</div> <div>ICCV, 2023</div>
+    </li>  -->                                                                      -->
+    <li>                                                                        
+        <div class="marker">Second Place of the ChaLearn Sign Spotting Challenge Challenge</div> <div>ECCV, 2022</div>
+    </li>                                                                       
+</ul>
+ 
+<h2>Services</h2>
+
+<ul>                                                                
+    <li>
+        <div class="marker">Conference Reviewer: CVPR, ACM MM, ACCV (outstanding reviewer in 2022)</div>
+    </li>                                                                       
+    <li>
+        <div class="marker">Journal Reviewer: IJCV, TNNLS, JBHI, TCBB</div>
+    </li>                                                                       
+</ul>
+
+</div>
+
+</div>
+</body>
+</html>
